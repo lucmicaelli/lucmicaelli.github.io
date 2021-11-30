@@ -1,0 +1,332 @@
+[
+    {
+      "type": 1,
+      "title": "DEV Overhand Fitness Cloud Server (oh-portal-backend/2018-12-01)",
+      "name": "oh-portal-backend",
+      "hostname": "oh-portal-backend",
+      "description": "oh-portal-backend",
+      "categories": [
+        "docker",
+        "overhandfitness",
+        "server",
+        "production"
+      ],
+      "platform": "linux",
+      "logo": "http://overhandfitness.cn/assets/img/logo.png",
+      "image": "overhandtech/oh-portal-backend:2018-12-01",
+      "ports": [
+        "8080:8080/tcp"
+      ],
+      "env": [
+        {
+          "name": "NODE_ENV",
+          "label": "NODE_ENV",
+          "select": [
+            {
+              "text": "production",
+              "value": "production",
+              "default": true
+            }, 
+            {
+              "text": "development",
+              "value": "development"
+            }
+          ]
+        },
+        {
+          "name": "WECHAT_APP_ID",
+          "label": "WECHAT_APP_ID",
+          "default": "wx5cc6d94f61d8315f"
+        },
+        {
+          "name": "WECHAT_APP_SECRET",
+          "label": "WECHAT_APP_SECRET"
+        },
+        {
+          "name": "DATABASE_CONNECTION_STRING",
+          "label": "DATABASE_CONNECTION_STRING",
+          "default": "mongodb://0.0.0.0/overhand"
+        },
+        {
+          "name": "AZURE_STORAGE_CONNECTION_STRING",
+          "label": "AZURE_STORAGE_CONNECTION_STRING"
+        },
+        {
+          "name": "OVERHAND_AZURE_STORAGE_URL",
+          "label": "OVERHAND_AZURE_STORAGE_URL",
+          "default": "https://overhand.blob.core.windows.net/"
+        }
+      ],
+      "volumes": [
+        {
+          "container": "/data"
+        }
+      ],
+      "restart_policy": "always"
+    },
+    {
+      "type": 1,
+      "title": "DEV Overhand Fitness Gym Server (oh-gym-backend)",
+      "name": "oh-gym-backend",
+      "hostname": "oh-gym-backend",
+      "description": "oh-gym-backend",
+      "categories": [
+        "docker",
+        "overhandfitness",
+        "server",
+        "development"
+      ],
+      "platform": "linux",
+      "logo": "http://overhandfitness.cn/assets/img/logo.png",
+      "image": "overhandtech/oh-gym-backend:2018-12-12",
+      "ports": [
+        "80:80/tcp",
+        "1883:1883/tcp"
+      ],
+      "env": [
+        {
+          "name": "NODE_ENV",
+          "label": "NODE_ENV",
+          "select": [
+            {
+              "text": "production",
+              "value": "production"
+            }, 
+            {
+              "text": "development",
+              "value": "development",
+              "default": true
+            }
+          ]
+        },
+        {
+          "name": "DEBUG",
+          "label": "DEBUG",
+          "default": "*,-nodemon,-nodemon:*,-snapdragon:*,-engine,-engine:*,-socket.io:*,-express:*,-socket.io-parser,-compression,-body-parser:*,-send,-mquery"
+        },
+        {
+          "name": "OH_API_URL",
+          "label": "OH_API_URL",
+          "default": "http://localhost/api/"
+        }
+      ],
+      "volumes": [
+        {
+          "container": "/data"
+        }
+      ],
+      "restart_policy": "always"
+    },
+    {
+      "type": 1,
+      "title": "DEV Overhand Fitness Web Coach App (oh-coach-app)",
+      "name": "oh-coach-app",
+      "hostname": "oh-coach-app",
+      "description": "oh-coach-app",
+      "categories": [
+        "docker",
+        "overhandfitness",
+        "server",
+        "development"
+      ],
+      "platform": "linux",
+      "logo": "http://overhandfitness.cn/assets/img/logo.png",
+      "image": "overhandtech/oh-coach-app:2018-12-03",
+      "ports": [
+        "0.0.0.0:8100:8100/tcp",
+        "0.0.0.0:35729:35729/tcp",
+        "0.0.0.0:53703:53703/tcp"
+      ],
+      "env": [
+        {
+          "name": "NODE_ENV",
+          "label": "NODE_ENV",
+          "select": [
+            {
+              "text": "production",
+              "value": "production"
+            }, 
+            {
+              "text": "development",
+              "value": "development",
+              "default": true
+            }
+          ]
+        }
+      ],
+      "volumes": [
+        {
+          "container": "/usr/src/app/src"
+        },
+        {
+          "container": "/data"
+        }
+      ],
+      "restart_policy": "always"
+    },
+    {
+      "type": 1,
+      "title": "GZ Overhand Fitness Cloud Server (oh-portal-backend/2018-12-19)",
+      "name": "oh-portal-backend",
+      "hostname": "oh-portal-backend",
+      "description": "oh-portal-backend",
+      "categories": [
+        "docker",
+        "overhandfitness",
+        "server",
+        "production"
+      ],
+      "platform": "linux",
+      "logo": "http://overhandfitness.cn/assets/img/logo.png",
+      "image": "overhandtech/oh-portal-backend:2018-12-19",
+      "ports": [
+        "8080:8080/tcp"
+      ],
+      "env": [
+        {
+          "name": "NODE_ENV",
+          "label": "NODE_ENV",
+          "select": [
+            {
+              "text": "production",
+              "value": "production",
+              "default": true
+            }, 
+            {
+              "text": "development",
+              "value": "development"
+            }
+          ]
+        },
+        {
+          "name": "WECHAT_APP_ID",
+          "label": "WECHAT_APP_ID",
+          "default": "wx5cc6d94f61d8315f"
+        },
+        {
+          "name": "WECHAT_APP_SECRET",
+          "label": "WECHAT_APP_SECRET"
+        },
+        {
+          "name": "DATABASE_CONNECTION_STRING",
+          "label": "DATABASE_CONNECTION_STRING",
+          "default": "mongodb://0.0.0.0/overhand"
+        },
+        {
+          "name": "AZURE_STORAGE_CONNECTION_STRING",
+          "label": "AZURE_STORAGE_CONNECTION_STRING"
+        },
+        {
+          "name": "OVERHAND_AZURE_STORAGE_URL",
+          "label": "OVERHAND_AZURE_STORAGE_URL",
+          "default": "https://overhand.blob.core.windows.net/"
+        }
+      ],
+      "volumes": [
+        {
+          "container": "/data"
+        }
+      ],
+      "restart_policy": "always"
+    },
+    {
+      "type": 1,
+      "title": "GZ Overhand Fitness Gym Server (oh-gym-backend/2018-12-18)",
+      "name": "oh-gym-backend",
+      "hostname": "oh-gym-backend",
+      "description": "oh-gym-backend",
+      "categories": [
+        "docker",
+        "overhandfitness",
+        "server",
+        "development"
+      ],
+      "platform": "linux",
+      "logo": "http://overhandfitness.cn/assets/img/logo.png",
+      "image": "overhandtech/oh-gym-backend:2018-12-18",
+      "ports": [
+        "0.0.0.0:80:80/tcp",
+        "0.0.0.0:1883:1883/tcp"
+      ],
+      "env": [
+        {
+          "name": "NODE_ENV",
+          "label": "NODE_ENV",
+          "select": [
+            {
+              "text": "production",
+              "value": "production"
+            }, 
+            {
+              "text": "development",
+              "value": "development",
+              "default": true
+            }
+          ]
+        },
+        {
+          "name": "DEBUG",
+          "label": "DEBUG",
+          "default": "*,-nodemon,-nodemon:*,-snapdragon:*,-engine,-engine:*,-socket.io:*,-express:*,-socket.io-parser,-compression,-body-parser:*,-send,-mquery"
+        },
+        {
+          "name": "OH_API_URL",
+          "label": "OH_API_URL",
+          "default": "http://overhandfitness.cn/api/"
+        }
+      ],
+      "volumes": [
+        {
+          "container": "/data"
+        }
+      ],
+      "restart_policy": "always"
+    },
+    {
+      "type": 1,
+      "title": "GZ Overhand Fitness Web Coach App (oh-coach-app/2018-12-19)",
+      "name": "oh-coach-app",
+      "hostname": "oh-coach-app",
+      "description": "oh-coach-app",
+      "categories": [
+        "docker",
+        "overhandfitness",
+        "server",
+        "development"
+      ],
+      "platform": "linux",
+      "logo": "http://overhandfitness.cn/assets/img/logo.png",
+      "image": "overhandtech/oh-coach-app:2018-12-19",
+      "ports": [
+        "0.0.0.0:8100:8100/tcp",
+        "0.0.0.0:35729:35729/tcp",
+        "0.0.0.0:53703:53703/tcp"
+      ],
+      "env": [
+        {
+          "name": "NODE_ENV",
+          "label": "NODE_ENV",
+          "select": [
+            {
+              "text": "production",
+              "value": "production"
+            }, 
+            {
+              "text": "development",
+              "value": "development",
+              "default": true
+            }
+          ]
+        }
+      ],
+      "volumes": [
+        {
+          "container": "/usr/src/app/src"
+        },
+        {
+          "container": "/data"
+        }
+      ],
+      "restart_policy": "always"
+    }
+  ]
